@@ -1,0 +1,61 @@
+﻿@model ForecastApp.ForecastAppModels.City
+
+@{
+    ViewData["Title"] = "City";
+}
+
+<div class="container">
+
+    <div class="container">
+
+        <div style="background-color:aqua;" class="form-group col-md-offset-3 col-md-6">
+            @if (!String.IsNullOrEmpty(Model.ErrorMessage))
+            {
+                <h1>@Model.ErrorMessage</h1>
+            }
+            else
+            {   
+                <h2>Weather Forecast : </h2>
+
+
+                <img src="@Model.WeatherImage" width="250" height="250" /> <span style="font-size:xx-large;">@Model.Name,@Model.Country </span>
+
+                <br />
+
+                <label asp-for="Temp"></label>
+                <span class="badge">@Model.Temp °C</span>
+                <br />
+
+                <label asp-for="Humidity"></label>
+                <span class="badge">@Model.Humidity %</span>
+                <br />
+
+                <label asp-for="Pressure"></label>
+                <span class="badge">@Model.Pressure Hpa</span>
+                <br />
+
+                <label asp-for="Wind"></label>
+                <span class="badge">@Model.Wind Km/h</span>
+                <br />
+
+                <label asp-for="Weather"></label>
+                <span class="badge">@Model.Weather</span>
+            }
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="form-group col-md-offset-3 col-md-6">
+
+            <form method="get">
+                <button asp-controller="ForecastApp" asp-action="SearchCity" class="btn btn-success">Return</button>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
